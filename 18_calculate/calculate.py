@@ -26,3 +26,10 @@ def calculate(operation, a, b, make_int=False, message='The result is'):
         >>> calculate('foo', 2, 3)
         
     """
+    operations = {"add": a + b, "subtract": a - b, "multiply": a * b, "divide": a / b}
+    if operation not in operations.keys():
+        return None
+    else:
+        for key in operations.keys():
+            if key == operation:
+                return f'{message} {operations[key]}' if not make_int else f'{message} {int(operations[key])}'

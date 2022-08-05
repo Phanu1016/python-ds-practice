@@ -13,3 +13,10 @@ def find_the_duplicate(nums):
         >>> find_the_duplicate([2, 1, 3, 4]) is None
         True
     """
+    nums.sort()
+    counts = {}
+    for num in nums:
+        counts[num] = counts.get(num, 0) + 1
+    for (key, value) in counts.items():
+        if value >= 2:
+            return key

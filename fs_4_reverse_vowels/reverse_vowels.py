@@ -19,3 +19,13 @@ def reverse_vowels(s):
     reverse_vowels("why try, shy fly?")
     'why try, shy fly?''
     """
+    vowel_indexes = [i for i in range(0, len(s)) if s[i].lower() in "aeiou"]
+
+    reversed_vowel_indexes = vowel_indexes.copy()
+    reversed_vowel_indexes.reverse()
+    vowel_dict = {vowel_indexes[i] : reversed_vowel_indexes[i] for i in range(0, len(vowel_indexes))}
+
+    result = ""
+    for i in range(0, len(s)):
+        result = result + s[vowel_dict[i]] if i in vowel_dict.keys() else result + s[i]
+    return result
